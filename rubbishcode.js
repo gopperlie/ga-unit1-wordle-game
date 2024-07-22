@@ -173,6 +173,8 @@ window.onload = function() {
 for (let i = 0; i < userInputValue.length; i++) {
     userInput1.push(userInputValue[i]); 
     if (userInput[i] === dailyWord[i]) {
-        
+
     }
     };
+
+    Array.from();

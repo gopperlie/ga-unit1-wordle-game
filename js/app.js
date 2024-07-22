@@ -17,6 +17,7 @@ const userGuess15 = document.getElementById("guess15");
 
 const guess2s = document.getElementsByClassName("guess2");
 
+
 const userGuess31 = document.getElementById("guess31");
 const userGuess32 = document.getElementById("guess32");
 const userGuess33 = document.getElementById("guess33");
@@ -81,13 +82,22 @@ const renderUserInput = () => {
     userGuess15.textContent = userInput1[4];
 };
 
+// const renderUserInput1 = () => {
+//     userGuess21.textContent = userInput2[0];
+//     userGuess22.textContent = userInput2[1];
+//     userGuess23.textContent = userInput2[2];
+//     userGuess24.textContent = userInput2[3];
+//     userGuess25.textContent = userInput2[4];
+// };
+
 const renderUserInput1 = () => {
-    userGuess21.textContent = userInput2[0];
-    userGuess22.textContent = userInput2[1];
-    userGuess23.textContent = userInput2[2];
-    userGuess24.textContent = userInput2[3];
-    userGuess25.textContent = userInput2[4];
-};
+    for (i = 0; i < guess2s.length; i++) {
+    guess2s[i].textContent = userInput2[i];
+    if (userInput2[i] === dailyWord[i]) {
+        guess2s[i].style.backgroundColor = 'green';
+    } else if (userIinput2[i] === dailyWord)
+    };
+}
 
 const renderUserInput2 = () => {
     userGuess31.textContent = userInput3[0];
@@ -96,6 +106,7 @@ const renderUserInput2 = () => {
     userGuess34.textContent = userInput3[3];
     userGuess35.textContent = userInput3[4];
 };
+
 
 const renderUserInput3 = () => {
     userGuess41.textContent = userInput4[0];
