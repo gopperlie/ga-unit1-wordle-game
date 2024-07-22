@@ -211,3 +211,46 @@ function checkAllGreen() {
         userInput.value = 'keep trying';
     }
 }
+
+function checkWin(guessArray) {
+        let allGreen = true; 
+
+    for (let i = 0; i < guessArray.length; i++) {
+        if (guessArray[i].backgroundColor !== 'green') { // 'green' in RGB format
+            allGreen = false;
+            break; // Exit the loop if any element is not green
+        }
+    }
+
+    if (allGreen) {
+        userInput.value = 'you win';
+    }};
+    
+
+    function checkWin(guessArray) {
+        const userInput = document.getElementById('userInput');
+        let allGreen = true; // Flag to check if all elements are green
+
+        for (let i = 0; i < guessArray.length; i++) {
+            const computedStyle = window.getComputedStyle(guessArray[i]);
+            if (computedStyle.backgroundColor !== 'rgb(0, 128, 0)') { // 'green' in RGB format
+                allGreen = false;
+                break; // Exit the loop if any element is not green
+            }
+        }
+
+        if (allGreen) {
+            userInput.value = 'you win';
+        } else {
+        }};
+
+
+        //ask simon why one works the ther doesnt
+
+        const getRandomWord = () => {
+            // Selecting a random word and hint from the wordList
+            const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
+            currentWord = word; // Making currentWord as random word
+            document.querySelector(".hint-text b").innerText = hint;
+            resetGame();
+        }

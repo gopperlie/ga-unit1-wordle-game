@@ -120,7 +120,26 @@ const renderUserInput5 = () => {
 //     // Store the string in a variable
 //     let varString = userInput;
 
-// let userInput = "horse";
+// function checkWin (guessArray) {
+//     for (i = 0; i < guessArray.length; i++) {
+//     if (guessArray[i].style.backgroundColor === 'green') {
+//         userInput.value = 'you win';
+// }}};
+
+function checkWin(guessArray) {
+    const userInput = document.getElementById('userInput');
+    let allGreen = true; // set to true first, then run to make it untrue;
+
+    for (let i = 0; i < guessArray.length; i++) {
+        const computedStyle = window.getComputedStyle(guessArray[i]);
+        if (computedStyle.backgroundColor !== 'rgb(0, 128, 0)') { // 'green' in RGB format
+            allGreen = false;
+            break; // Exit the loop if any element is not green
+        }
+    }
+    if (allGreen) {
+        return true;
+    } };
 
 //can explore using the 'userInput.split' method for this
 
@@ -161,13 +180,14 @@ const pushUserInput = () => {
     userInput1.push(userInputValue[i]); 
     };
     renderUserInput();
-    if (guess1s[0].style.backgroundColor === 'green') {
-        userInput.value = 'you win';
+    if (checkWin(guess1s) === true) {
+        userInput.value = 'You Win!';
     } else {
     userInput.value = '';
-    turnCount += 1;}
+    turnCount += 1;
     return turnCount;
-}; 
+    };
+};
 
 const pushUserInput1 = () => {
     const userInputValue = userInput.value;
@@ -175,9 +195,13 @@ const pushUserInput1 = () => {
     userInput2.push(userInputValue[i]); 
     };
     renderUserInput1();
+    if (checkWin(guess2s) === true) {
+        userInput.value = 'You Win!';
+    } else {
     userInput.value = '';
     turnCount += 1;
     return turnCount;
+    };
 };
 
 const pushUserInput2 = () => {
@@ -186,9 +210,13 @@ const pushUserInput2 = () => {
     userInput3.push(userInputValue[i]); 
     };
     renderUserInput2();
+    if (checkWin(guess3s) === true) {
+        userInput.value = 'You Win!';
+    } else {
     userInput.value = '';
     turnCount += 1
     return turnCount;
+    };
 };
 
 const pushUserInput3 = () => {
@@ -197,9 +225,13 @@ const pushUserInput3 = () => {
     userInput4.push(userInputValue[i]); 
     };
     renderUserInput3();
+    if (checkWin(guess4s) === true) {
+        userInput.value = 'You Win!';
+    } else {
     userInput.value = '';
     turnCount += 1;
     return turnCount;
+    };
 };
 
 const pushUserInput4 = () => {
@@ -208,9 +240,13 @@ const pushUserInput4 = () => {
     userInput5.push(userInputValue[i]); 
     };
     renderUserInput4();
+    if (checkWin(guess5s) === true) {
+        userInput.value = 'You Win!';
+    } else {
     userInput.value = '';
     turnCount += 1;
     return turnCount;
+    };
 };
 
 const pushUserInput5 = () => {
@@ -219,9 +255,13 @@ const pushUserInput5 = () => {
     userInput6.push(userInputValue[i]); 
     };
     renderUserInput5();
+    if (checkWin(guess6s) === true) {
+        userInput.value = 'You Win!';
+    } else {
     userInput.value = '';
     turnCount += 1;
     return turnCount;
+    };
 };
 
 // pushUserInput();
