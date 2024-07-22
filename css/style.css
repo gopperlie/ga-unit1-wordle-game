@@ -82,7 +82,7 @@ body {
   align-items: center;
   margin: 1px; /* Optional: Add space between flex items */
 }
-.guess2 {
+.guess1 {
   border: 1px solid black;
   width: 50px;
   height: 50px;
@@ -92,7 +92,43 @@ body {
   margin: 1px; /* Optional: Add space between flex items */
 }
 
-.guess1 {
+.guess2 {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px; /* Optional: Add space between flex items */
+}
+.guess3 {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px; /* Optional: Add space between flex items */
+}
+.guess4 {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px; /* Optional: Add space between flex items */
+}
+.guess5 {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px; /* Optional: Add space between flex items */
+}
+.guess6 {
   border: 1px solid black;
   width: 50px;
   height: 50px;

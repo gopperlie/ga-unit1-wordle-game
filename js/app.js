@@ -3,45 +3,12 @@
 // const present = () => {yellow};
 // const wrong = () => {grey}; 
 
-// const userGuess11 = document.getElementById("guess11");
-// const userGuess12 = document.getElementById("guess12");
-// const userGuess13 = document.getElementById("guess13");
-// const userGuess14 = document.getElementById("guess14");
-// const userGuess15 = document.getElementById("guess15");
-
-// const userGuess21 = document.getElementById("guess21");
-// const userGuess22 = document.getElementById("guess22");
-// const userGuess23 = document.getElementById("guess23");
-// const userGuess24 = document.getElementById("guess24");
-// const userGuess25 = document.getElementById("guess25");
-
 const guess1s = document.getElementsByClassName("guess1");
 const guess2s = document.getElementsByClassName("guess2");
-
-
-const userGuess31 = document.getElementById("guess31");
-const userGuess32 = document.getElementById("guess32");
-const userGuess33 = document.getElementById("guess33");
-const userGuess34 = document.getElementById("guess34");
-const userGuess35 = document.getElementById("guess35");
-
-const userGuess41 = document.getElementById("guess41");
-const userGuess42 = document.getElementById("guess42");
-const userGuess43 = document.getElementById("guess43");
-const userGuess44 = document.getElementById("guess44");
-const userGuess45 = document.getElementById("guess45");
-
-const userGuess51 = document.getElementById("guess51");
-const userGuess52 = document.getElementById("guess52");
-const userGuess53 = document.getElementById("guess53");
-const userGuess54 = document.getElementById("guess54");
-const userGuess55 = document.getElementById("guess55");
-
-const userGuess61 = document.getElementById("guess61");
-const userGuess62 = document.getElementById("guess62");
-const userGuess63 = document.getElementById("guess63");
-const userGuess64 = document.getElementById("guess64");
-const userGuess65 = document.getElementById("guess65");
+const guess3s = document.getElementsByClassName("guess3");
+const guess4s = document.getElementsByClassName("guess4");
+const guess5s = document.getElementsByClassName("guess5");
+const guess6s = document.getElementsByClassName("guess6");
 
 const guessButton = document.getElementById("guess");
 const userInput = document.getElementById('guessInput');
@@ -93,36 +60,44 @@ const renderUserInput1 = () => {
 }
 
 const renderUserInput2 = () => {
-    userGuess31.textContent = userInput3[0];
-    userGuess32.textContent = userInput3[1];
-    userGuess33.textContent = userInput3[2];
-    userGuess34.textContent = userInput3[3];
-    userGuess35.textContent = userInput3[4];
+    for (i = 0; i < userInput3.length; i++) {
+        guess3s[i].textContent = userInput3[i];
+        if (userInput3[i] === dailyWord[i]) {
+            guess3s[i].style.backgroundColor = 'green';
+        } else if (dailyWord.includes(userInput3[i])) {
+            guess3s[i].style.backgroundColor = 'yellow';
+        }};
 };
 
 
 const renderUserInput3 = () => {
-    userGuess41.textContent = userInput4[0];
-    userGuess42.textContent = userInput4[1];
-    userGuess43.textContent = userInput4[2];
-    userGuess44.textContent = userInput4[3];
-    userGuess45.textContent = userInput4[4];
+    for (i = 0; i < userInput4.length; i++) {
+        guess4s[i].textContent = userInput4[i];
+        if (userInput4[i] === dailyWord[i]) {
+            guess4s[i].style.backgroundColor = 'green';
+        } else if (dailyWord.includes(userInput4[i])) {
+            guess4s[i].style.backgroundColor = 'yellow';
+        }};
 };
 
 const renderUserInput4 = () => {
-    userGuess51.textContent = userInput5[0];
-    userGuess52.textContent = userInput5[1];
-    userGuess53.textContent = userInput5[2];
-    userGuess54.textContent = userInput5[3];
-    userGuess55.textContent = userInput5[4];
+    for (i = 0; i < userInput5.length; i++) {
+        guess5s[i].textContent = userInput5[i];
+        if (userInput5[i] === dailyWord[i]) {
+            guess5s[i].style.backgroundColor = 'green';
+        } else if (dailyWord.includes(userInput5[i])) {
+            guess5s[i].style.backgroundColor = 'yellow';
+        }};
 };
 
 const renderUserInput5 = () => {
-    userGuess61.textContent = userInput6[0];
-    userGuess62.textContent = userInput6[1];
-    userGuess63.textContent = userInput6[2];
-    userGuess64.textContent = userInput6[3];
-    userGuess65.textContent = userInput6[4];
+    for (i = 0; i < userInput6.length; i++) {
+        guess6s[i].textContent = userInput6[i];
+        if (userInput6[i] === dailyWord[i]) {
+            guess6s[i].style.backgroundColor = 'green';
+        } else if (dailyWord.includes(userInput6[i])) {
+            guess6s[i].style.backgroundColor = 'yellow';
+        }};
 };
 /*-------------------------------- Functions --------------------------------*/
 
@@ -222,7 +197,6 @@ const pushUserInput4 = () => {
     userInput.value = '';
     turnCount += 1
     return turnCount;
-
 };
 
 const pushUserInput5 = () => {
