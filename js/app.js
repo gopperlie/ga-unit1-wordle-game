@@ -3,11 +3,11 @@
 // const present = () => {yellow};
 // const wrong = () => {grey}; 
 
-const userGuess11 = document.getElementById("guess11");
-const userGuess12 = document.getElementById("guess12");
-const userGuess13 = document.getElementById("guess13");
-const userGuess14 = document.getElementById("guess14");
-const userGuess15 = document.getElementById("guess15");
+// const userGuess11 = document.getElementById("guess11");
+// const userGuess12 = document.getElementById("guess12");
+// const userGuess13 = document.getElementById("guess13");
+// const userGuess14 = document.getElementById("guess14");
+// const userGuess15 = document.getElementById("guess15");
 
 // const userGuess21 = document.getElementById("guess21");
 // const userGuess22 = document.getElementById("guess22");
@@ -15,6 +15,7 @@ const userGuess15 = document.getElementById("guess15");
 // const userGuess24 = document.getElementById("guess24");
 // const userGuess25 = document.getElementById("guess25");
 
+const guess1s = document.getElementsByClassName("guess1");
 const guess2s = document.getElementsByClassName("guess2");
 
 
@@ -71,32 +72,24 @@ let userInput5 = [];
 let userInput6 = [];
 
 const renderUserInput = () => {
-    userGuess11.textContent = userInput1[0];
-    if (userInput1[0] === dailyWord[0]) {
-        userGuess11.style.backgroundColor = 'green';}
-    userGuess12.textContent = userInput1[1];
-    if (userInput1[1] === dailyWord[1]) {
-        userGuess12.style.backgroundColor = 'green';}
-    userGuess13.textContent = userInput1[2];
-    userGuess14.textContent = userInput1[3];
-    userGuess15.textContent = userInput1[4];
+    for (i = 0; i < userInput1.length; i++) {
+        guess1s[i].textContent = userInput1[i];
+        if (userInput1[i] === dailyWord[i]) {
+            guess1s[i].style.backgroundColor = 'green';
+        } else if (dailyWord.includes(userInput1[i])) {
+            guess1s[i].style.backgroundColor = 'yellow';
+        }};
 };
 
-// const renderUserInput1 = () => {
-//     userGuess21.textContent = userInput2[0];
-//     userGuess22.textContent = userInput2[1];
-//     userGuess23.textContent = userInput2[2];
-//     userGuess24.textContent = userInput2[3];
-//     userGuess25.textContent = userInput2[4];
-// };
 
 const renderUserInput1 = () => {
-    for (i = 0; i < guess2s.length; i++) {
+    for (i = 0; i < userInput2.length; i++) {
     guess2s[i].textContent = userInput2[i];
     if (userInput2[i] === dailyWord[i]) {
         guess2s[i].style.backgroundColor = 'green';
-    } else if (userIinput2[i] === dailyWord)
-    };
+    } else if (dailyWord.includes(userInput2[i])) {
+        guess2s[i].style.backgroundColor = 'yellow';
+    }};
 }
 
 const renderUserInput2 = () => {

@@ -178,3 +178,17 @@ for (let i = 0; i < userInputValue.length; i++) {
     };
 
     Array.from();
+
+
+
+const str = 'hello world';
+
+for (let char of str) {
+    if ('aeiou'.includes(char)) {
+        console.log(`${char} is a vowel`);
+    } else if (char.match(/[a-z]/i)) {
+        console.log(`${char} is a consonant`);
+    } else {
+        console.log(`${char} is not a letter`);
+    }
+}
