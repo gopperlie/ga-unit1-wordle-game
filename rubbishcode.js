@@ -192,3 +192,22 @@ for (let char of str) {
         console.log(`${char} is not a letter`);
     }
 }
+
+function checkAllGreen() {
+    const guess1s = document.querySelectorAll('.guess');
+    const userInput = document.getElementById('userInput');
+    let allGreen = true;
+
+    for (let i = 0; i < guess1s.length; i++) {
+        if (window.getComputedStyle(guess1s[i]).backgroundColor !== 'rgb(0, 128, 0)') { // green in RGB format
+            allGreen = false;
+            break;
+        }
+    }
+
+    if (allGreen) {
+        userInput.value = 'you win';
+    } else {
+        userInput.value = 'keep trying';
+    }
+}

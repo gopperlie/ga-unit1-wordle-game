@@ -30,7 +30,7 @@ const userInput = document.getElementById('guessInput');
 let turnCount = 0;
 
 /*------------------------ Cached Element References ------------------------*/
-let dailyWord = ["h","o","r","s","e",]; //remember to change this to empty array
+let dailyWord = ["a","b","o","u","t",]; //remember to change this to empty array
 let userInput1 = [];
 let userInput2 = [];
 let userInput3 = [];
@@ -144,16 +144,30 @@ const checkTurnValue = () => {
     }
 };
 
-const pushUserInput = () => {
+/* const pushUserInput = () => {
     const userInputValue = userInput.value;
     for (let i = 0; i < userInputValue.length; i++) {
     userInput1.push(userInputValue[i]); 
     };
     renderUserInput();
     userInput.value = '';
-    turnCount += 1
+    turnCount += 1;
     return turnCount;
-};
+}; */
+
+const pushUserInput = () => {
+    const userInputValue = userInput.value;
+    for (let i = 0; i < userInputValue.length; i++) {
+    userInput1.push(userInputValue[i]); 
+    };
+    renderUserInput();
+    if (guess1s[0].style.backgroundColor === 'green') {
+        userInput.value = 'you win';
+    } else {
+    userInput.value = '';
+    turnCount += 1;}
+    return turnCount;
+}; 
 
 const pushUserInput1 = () => {
     const userInputValue = userInput.value;
@@ -162,7 +176,7 @@ const pushUserInput1 = () => {
     };
     renderUserInput1();
     userInput.value = '';
-    turnCount += 1
+    turnCount += 1;
     return turnCount;
 };
 
@@ -184,7 +198,7 @@ const pushUserInput3 = () => {
     };
     renderUserInput3();
     userInput.value = '';
-    turnCount += 1
+    turnCount += 1;
     return turnCount;
 };
 
@@ -195,7 +209,7 @@ const pushUserInput4 = () => {
     };
     renderUserInput4();
     userInput.value = '';
-    turnCount += 1
+    turnCount += 1;
     return turnCount;
 };
 
@@ -206,7 +220,7 @@ const pushUserInput5 = () => {
     };
     renderUserInput5();
     userInput.value = '';
-    turnCount += 1
+    turnCount += 1;
     return turnCount;
 };
 

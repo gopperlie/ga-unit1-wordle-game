@@ -39,3 +39,7 @@ user can only guess words with unique characters for now.
 
 how to render stuff in app.jss on index.html?
 
+things left to do
+-create a you win page - try new word?
+-capital letters vs non capital letters
+
