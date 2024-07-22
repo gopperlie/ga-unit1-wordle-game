@@ -9,11 +9,13 @@ const userGuess13 = document.getElementById("guess13");
 const userGuess14 = document.getElementById("guess14");
 const userGuess15 = document.getElementById("guess15");
 
-const userGuess21 = document.getElementById("guess21");
-const userGuess22 = document.getElementById("guess22");
-const userGuess23 = document.getElementById("guess23");
-const userGuess24 = document.getElementById("guess24");
-const userGuess25 = document.getElementById("guess25");
+// const userGuess21 = document.getElementById("guess21");
+// const userGuess22 = document.getElementById("guess22");
+// const userGuess23 = document.getElementById("guess23");
+// const userGuess24 = document.getElementById("guess24");
+// const userGuess25 = document.getElementById("guess25");
+
+const guess2s = document.getElementsByClassName("guess2");
 
 const userGuess31 = document.getElementById("guess31");
 const userGuess32 = document.getElementById("guess32");
@@ -69,7 +71,11 @@ let userInput6 = [];
 
 const renderUserInput = () => {
     userGuess11.textContent = userInput1[0];
+    if (userInput1[0] === dailyWord[0]) {
+        userGuess11.style.backgroundColor = 'green';}
     userGuess12.textContent = userInput1[1];
+    if (userInput1[1] === dailyWord[1]) {
+        userGuess12.style.backgroundColor = 'green';}
     userGuess13.textContent = userInput1[2];
     userGuess14.textContent = userInput1[3];
     userGuess15.textContent = userInput1[4];
