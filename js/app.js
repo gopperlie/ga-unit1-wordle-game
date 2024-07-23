@@ -30,7 +30,7 @@ const userInput = document.getElementById('guessInput');
 let turnCount = 0;
 
 /*------------------------ Cached Element References ------------------------*/
-let dailyWord = ["a","b","o","u","t",]; //remember to change this to empty array
+let dailyWord = []; //remember to change this to empty array
 let userInput1 = [];
 let userInput2 = [];
 let userInput3 = [];
@@ -101,15 +101,17 @@ const renderUserInput5 = () => {
 };
 /*-------------------------------- Functions --------------------------------*/
 
-// function stringToLetters (string) {
-//     //separates the string into an array of letters.
-// }
+const pushTheWord = (word0 , wordArray1) => {
+    for (let i = 0; i < word0.length; i++) {
+        wordArray1.push(word0[i]); 
+        };
+};
 
-// function validate () {
-//     if (userInput[1] = dailyWord[i]) {
-//      correct();
-//     };
-// }
+const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
+
+// let testWord = wordleList[2];
+
+// console.log(pushDailyWord(testWord,dailyWord));
 
 // document.getElementById('stringForm').addEventListener('submit', function(event) {
 //     event.preventDefault(); // Prevent form submission
@@ -175,6 +177,7 @@ const checkTurnValue = () => {
 }; */
 
 const pushUserInput = () => {
+    pushTheWord(chosenWord,dailyWord);
     const userInputValue = userInput.value;
     for (let i = 0; i < userInputValue.length; i++) {
     userInput1.push(userInputValue[i]); 

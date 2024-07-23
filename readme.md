@@ -42,4 +42,5 @@ how to render stuff in app.jss on index.html?
 things left to do
 -create a you win page - try new word?
 -capital letters vs non capital letters
-
+-logic, if user tries a legitimate word with 2 same characters, like obese, but correct word only has 1 'e', how to 
+change the correct 'e'?
