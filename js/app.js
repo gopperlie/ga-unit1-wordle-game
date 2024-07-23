@@ -1,7 +1,4 @@
 /*-------------------------------- Constants --------------------------------*/
-// const correct = () => {green};
-// const present = () => {yellow};
-// const wrong = () => {grey}; 
 
 const guess1s = document.getElementsByClassName("guess1");
 const guess2s = document.getElementsByClassName("guess2");
@@ -14,17 +11,6 @@ const guessButton = document.getElementById("guess");
 const userInput = document.getElementById('guessInput');
 
 // /*-------------------------------- Variables --------------------------------*/
-// let game = {
-//     dailyWord;
-//     userInput1;
-//     userInput2;
-//     userInput3;
-//     userInput4;
-//     userInput5;
-//     userInput6;
-// }
-
-// const win =() => {};
 // const lose = () => {};
 
 let turnCount = 0;
@@ -42,7 +28,7 @@ const renderUserInput = () => {
     for (i = 0; i < userInput1.length; i++) {
         guess1s[i].textContent = userInput1[i];
         if (userInput1[i] === dailyWord[i]) {
-            guess1s[i].style.backgroundColor = 'green';
+            guess1s[i].style.backgroundColor = 'rgb(127, 176, 105)';
         } else if (dailyWord.includes(userInput1[i])) {
             guess1s[i].style.backgroundColor = 'yellow';
         }};
@@ -53,7 +39,7 @@ const renderUserInput1 = () => {
     for (i = 0; i < userInput2.length; i++) {
     guess2s[i].textContent = userInput2[i];
     if (userInput2[i] === dailyWord[i]) {
-        guess2s[i].style.backgroundColor = 'green';
+        guess2s[i].style.backgroundColor = 'rgb(127, 176, 105)';
     } else if (dailyWord.includes(userInput2[i])) {
         guess2s[i].style.backgroundColor = 'yellow';
     }};
@@ -63,7 +49,7 @@ const renderUserInput2 = () => {
     for (i = 0; i < userInput3.length; i++) {
         guess3s[i].textContent = userInput3[i];
         if (userInput3[i] === dailyWord[i]) {
-            guess3s[i].style.backgroundColor = 'green';
+            guess3s[i].style.backgroundColor = 'rgb(127, 176, 105)';
         } else if (dailyWord.includes(userInput3[i])) {
             guess3s[i].style.backgroundColor = 'yellow';
         }};
@@ -74,7 +60,7 @@ const renderUserInput3 = () => {
     for (i = 0; i < userInput4.length; i++) {
         guess4s[i].textContent = userInput4[i];
         if (userInput4[i] === dailyWord[i]) {
-            guess4s[i].style.backgroundColor = 'green';
+            guess4s[i].style.backgroundColor = 'rgb(127, 176, 105)';
         } else if (dailyWord.includes(userInput4[i])) {
             guess4s[i].style.backgroundColor = 'yellow';
         }};
@@ -84,7 +70,7 @@ const renderUserInput4 = () => {
     for (i = 0; i < userInput5.length; i++) {
         guess5s[i].textContent = userInput5[i];
         if (userInput5[i] === dailyWord[i]) {
-            guess5s[i].style.backgroundColor = 'green';
+            guess5s[i].style.backgroundColor = 'rgb(127, 176, 105)';
         } else if (dailyWord.includes(userInput5[i])) {
             guess5s[i].style.backgroundColor = 'yellow';
         }};
@@ -94,7 +80,7 @@ const renderUserInput5 = () => {
     for (i = 0; i < userInput6.length; i++) {
         guess6s[i].textContent = userInput6[i];
         if (userInput6[i] === dailyWord[i]) {
-            guess6s[i].style.backgroundColor = 'green';
+            guess6s[i].style.backgroundColor = 'rgb(127, 176, 105)';
         } else if (dailyWord.includes(userInput6[i])) {
             guess6s[i].style.backgroundColor = 'yellow';
         }};
@@ -109,19 +95,6 @@ const pushTheWord = (word0 , wordArray1) => {
 
 const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
 
-// let testWord = wordleList[2];
-
-// console.log(pushDailyWord(testWord,dailyWord));
-
-// document.getElementById('stringForm').addEventListener('submit', function(event) {
-//     event.preventDefault(); // Prevent form submission
-
-//     // Get the string from the input field
-//     let userInput = document.getElementById('userInput').value;
-
-//     // Store the string in a variable
-//     let varString = userInput;
-
 // function checkWin (guessArray) {
 //     for (i = 0; i < guessArray.length; i++) {
 //     if (guessArray[i].style.backgroundColor === 'green') {
@@ -134,7 +107,7 @@ function checkWin(guessArray) {
 
     for (let i = 0; i < guessArray.length; i++) {
         const computedStyle = window.getComputedStyle(guessArray[i]);
-        if (computedStyle.backgroundColor !== 'rgb(0, 128, 0)') { // 'green' in RGB format
+        if (computedStyle.backgroundColor !== 'rgb(127, 176, 105)') { // 'green' in RGB format
             allGreen = false;
             break; // Exit the loop if any element is not green
         }
@@ -267,14 +240,7 @@ const pushUserInput5 = () => {
     };
 };
 
-// pushUserInput();
-// console.log(userGuess);
-
-
 /*----------------------------- Event Listeners -----------------------------*/
-// const start = () => {
-//     guessButton.addEventListener('click', pushUserInput());
-// }
 
 // start();
 
