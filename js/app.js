@@ -29,6 +29,7 @@ const renderUserInput = () => {
         guess1s[i].textContent = userInput1[i];
         if (userInput1[i] === dailyWord[i]) {
             guess1s[i].style.backgroundColor = 'rgb(127, 176, 105)';
+            userInput1[i] = ''; //this line does nothing
         } else if (dailyWord.includes(userInput1[i])) {
             guess1s[i].style.backgroundColor = 'yellow';
         }};
@@ -93,7 +94,9 @@ const pushTheWord = (word0 , wordArray1) => {
         };
 };
 
-const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
+// const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
+
+const chosenWord = 'stone';
 
 // function checkWin (guessArray) {
 //     for (i = 0; i < guessArray.length; i++) {
@@ -134,7 +137,7 @@ const checkTurnValue = () => {
     } else if (turnCount === 5) {
         pushUserInput5();
     } else {
-        console.log("game");
+        userInput.value = chosenWord;
     }
 };
 
@@ -152,9 +155,7 @@ const checkTurnValue = () => {
 const pushUserInput = () => {
     pushTheWord(chosenWord,dailyWord);
     const userInputValue = userInput.value;
-    for (let i = 0; i < userInputValue.length; i++) {
-    userInput1.push(userInputValue[i]); 
-    };
+    pushTheWord(userInputValue,userInput1);
     renderUserInput();
     if (checkWin(guess1s) === true) {
         userInput.value = 'You Win!';
@@ -167,9 +168,7 @@ const pushUserInput = () => {
 
 const pushUserInput1 = () => {
     const userInputValue = userInput.value;
-    for (let i = 0; i < userInputValue.length; i++) {
-    userInput2.push(userInputValue[i]); 
-    };
+    pushTheWord(userInputValue,userInput2);
     renderUserInput1();
     if (checkWin(guess2s) === true) {
         userInput.value = 'You Win!';
@@ -182,9 +181,7 @@ const pushUserInput1 = () => {
 
 const pushUserInput2 = () => {
     const userInputValue = userInput.value;
-    for (let i = 0; i < userInputValue.length; i++) {
-    userInput3.push(userInputValue[i]); 
-    };
+    pushTheWord(userInputValue,userInput3);
     renderUserInput2();
     if (checkWin(guess3s) === true) {
         userInput.value = 'You Win!';
@@ -197,9 +194,7 @@ const pushUserInput2 = () => {
 
 const pushUserInput3 = () => {
     const userInputValue = userInput.value;
-    for (let i = 0; i < userInputValue.length; i++) {
-    userInput4.push(userInputValue[i]); 
-    };
+    pushTheWord(userInputValue,userInput4);
     renderUserInput3();
     if (checkWin(guess4s) === true) {
         userInput.value = 'You Win!';
@@ -212,9 +207,7 @@ const pushUserInput3 = () => {
 
 const pushUserInput4 = () => {
     const userInputValue = userInput.value;
-    for (let i = 0; i < userInputValue.length; i++) {
-    userInput5.push(userInputValue[i]); 
-    };
+    pushTheWord(userInputValue,userInput5);
     renderUserInput4();
     if (checkWin(guess5s) === true) {
         userInput.value = 'You Win!';
@@ -227,9 +220,7 @@ const pushUserInput4 = () => {
 
 const pushUserInput5 = () => {
     const userInputValue = userInput.value;
-    for (let i = 0; i < userInputValue.length; i++) {
-    userInput6.push(userInputValue[i]); 
-    };
+    pushTheWord(userInputValue,userInput6);
     renderUserInput5();
     if (checkWin(guess6s) === true) {
         userInput.value = 'You Win!';

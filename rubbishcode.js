@@ -246,11 +246,66 @@ function checkWin(guessArray) {
 
 
         //ask simon why one works the ther doesnt
+// function for wordle logic
+// Let's say the correct word is "stone" and the guessed word is "spoon".
 
-        const getRandomWord = () => {
-            // Selecting a random word and hint from the wordList
-            const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
-            currentWord = word; // Making currentWord as random word
-            document.querySelector(".hint-text b").innerText = hint;
-            resetGame();
+// Loop through each letter in the guessed word.
+// Check if the letter is in the correct position.
+// Check if the letter is in the word but in the wrong position.
+// Keep track of matched letters to avoid duplicate yellow highlights.
+
+function getHighlights(correctWord, guessedWord) {
+ const correctWordArray = correctWord.split('');
+            const guessedWordArray = guessedWord.split('');
+            
+            // First, mark correct positions with green
+            const correctPositions = Array(correctWord.length).fill(false);
+            for (let i = 0; i < guessedWordArray.length; i++) {
+                if (guessedWordArray[i] === correctWordArray[i]) {
+                    result[i] = 'green';
+                    correctPositions[i] = true;
+                    correctWordArray[i] = null; // Remove the matched letter
+                } else {
+                    result[i] = 'gray'; // Default color
+                }
+            }
+            
+            // Then, mark correct letters in wrong positions with yellow
+            for (let i = 0; i < guessedWordArray.length; i++) {
+                if (result[i] !== 'green' && correctWordArray.includes(guessedWordArray[i])) {
+                    result[i] = 'yellow';
+                    correctWordArray[correctWordArray.indexOf(guessedWordArray[i])] = null; // Remove the matched letter
+                }
+            }
+            
+            return result;
         }
+        
+        const correctWord = 'stone';
+        const guessedWord = 'spoon';
+        const highlights = getHighlights(correctWord, guessedWord);
+        
+        console.log(highlights); // Output: ["green", "gray", "gray", "yellow", "gray"]
+        
+        // Highlight the guessed word based on the result
+        // Assuming you have an HTML structure like this:
+        // <div class="word">
+        //   <span class="letter">s</span>
+        //   <span class="letter">p</span>
+        //   <span class="letter">o</span>
+        //   <span class="letter">o</span>
+        //   <span class="letter">n</span>
+        // </div>
+        
+        function applyHighlights(guessedWord, highlights) {
+            const wordElement = document.querySelector('.word');
+            const letters = wordElement.querySelectorAll('.letter');
+            
+            for (let i = 0; i < letters.length; i++) {
+                letters[i].style.backgroundColor = highlights[i];
+            }
+        }
+        
+        // Call the function to apply highlights to the guessed word
+        applyHighlights(guessedWord, highlights);
+        

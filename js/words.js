@@ -14,4 +14,13 @@ const wordleList = [
 'squat',
 'lousy',
 'jumpy',
+'point',
+'truce',
+'glove',
+'clove',
+'spade',
+'spank',
+'cough',
+'pound',
+'eight',
 ];
