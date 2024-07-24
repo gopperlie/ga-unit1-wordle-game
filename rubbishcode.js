@@ -18,7 +18,7 @@
 </body>
 </html>
 
-*/
+
 
 document.getElementById('stringForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
@@ -67,7 +67,7 @@ This setup will allow the user to input a comma-separated string, and upon submi
     <script src="script.js"></script>
 </body>
 </html>
-*/
+
 
 // Add event listener to the form
 document.getElementById('stringForm').addEventListener('submit', function(event) {
@@ -83,7 +83,7 @@ document.getElementById('stringForm').addEventListener('submit', function(event)
     document.getElementById('result').textContent = `String: ${varString}`;
 });
 
-/* 
+
 	1	JavaScript:
 	◦	Add an event listener to the form to handle the submit event.
 	◦	Use event.preventDefault() to prevent the default form submission behavior, which would cause the page to reload.
@@ -91,7 +91,7 @@ document.getElementById('stringForm').addEventListener('submit', function(event)
 	◦	Store the retrieved string in a variable (varString).
 	◦	Display the resulting string in the paragraph element with the id="result".
 This setup will allow the user to input a string, and upon submission, it will display the entered string on the web page. The varString variable will hold the user's input for further processing if needed.
-*/
+
 
 
 document.getElementById('stringForm').addEventListener('submit', function(event) {
@@ -111,21 +111,21 @@ document.getElementById('stringForm').addEventListener('submit', function(event)
 });
 
 
-/*
+
 Summary:
 Use innerHTML to insert HTML content.
 Use textContent to insert plain text safely.
 Use createElement and appendChild to create and append elements dynamically.
 Iterate through arrays and dynamically create and append elements for more complex structures.
 By using these methods, you can dynamically render and update content on your HTML page from JavaScript.
-*/
+
 
 const guessButton = document.getElementById("guess");
 guessButton.addEventListener('click', console.log("xxx"));
 
 guessButton.addEventListener('click', () => {console.log("xxx")});
 
-/*============*/
+
     // Access the input element and the button
     const userInput = document.getElementById('userInput');
     const submitButton = document.getElementById('submitButton');
@@ -140,7 +140,7 @@ guessButton.addEventListener('click', () => {console.log("xxx")});
         output.textContent = `You entered: ${userInputValue}`;
     });
 
-    /*==============*/
+
 
     document.addEventListener('DOMContentLoaded', () => {
     const colorBox = document.getElementById('colorBox');
@@ -153,7 +153,7 @@ guessButton.addEventListener('click', () => {console.log("xxx")});
 
 
 /* ======== */
-
+/*
 window.onload = function() {
     const myDiv = document.getElementById('myDiv');
 
@@ -244,7 +244,7 @@ function checkWin(guessArray) {
         } else {
         }};
 
-
+*/
         //ask simon why one works the ther doesnt
 // function for wordle logic
 // Let's say the correct word is "stone" and the guessed word is "spoon".
@@ -253,6 +253,32 @@ function checkWin(guessArray) {
 // Check if the letter is in the correct position.
 // Check if the letter is in the word but in the wrong position.
 // Keep track of matched letters to avoid duplicate yellow highlights.
+
+
+function doHighlights (guessedWord) { //guessWord needs to be an array already
+    const correctWord = {};
+for (i = 0; i < guessedWord.length; i++) {
+    correctWord[guessedWord[i]] = null;
+    }
+    return correctWord;
+};
+
+let testArray = ['horse'];
+
+console.log(testArray.length);
+console.log(doHighlights(testArray));
+/*
+
+const renderUserInput = () => {
+    for (i = 0; i < userInput1.length; i++) {
+        guess1s[i].textContent = userInput1[i];
+        if (userInput1[i] === dailyWord[i]) {
+            guess1s[i].style.backgroundColor = 'rgb(127, 176, 105)';
+            userInput1[i] = ''; //this line does nothing
+        } else if (dailyWord.includes(userInput1[i])) {
+            guess1s[i].style.backgroundColor = 'yellow';
+        }};
+};
 
 function getHighlights(correctWord, guessedWord) {
  const correctWordArray = correctWord.split('');
@@ -308,4 +334,4 @@ function getHighlights(correctWord, guessedWord) {
         
         // Call the function to apply highlights to the guessed word
         applyHighlights(guessedWord, highlights);
-        
+        */
