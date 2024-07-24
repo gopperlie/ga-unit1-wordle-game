@@ -157,17 +157,6 @@ const checkTurnValue = () => {
     }
 };
 
-/* const pushUserInput = () => {
-    const userInputValue = userInput.value;
-    for (let i = 0; i < userInputValue.length; i++) {
-    userInput1.push(userInputValue[i]); 
-    };
-    renderUserInput();
-    userInput.value = '';
-    turnCount += 1;
-    return turnCount;
-}; */
-
 const pushUserInput = () => {
     pushTheWord(chosenWord,dailyWord); //pushes the daily, correct word into the dailWord array
     const userInputValue = userInput.value; //gets the user's input and park it in userInputValue
