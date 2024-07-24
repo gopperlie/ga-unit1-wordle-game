@@ -23,4 +23,10 @@ const wordleList = [
 'cough',
 'pound',
 'eight',
+'fifty',
+'spoon',
+'obese',
+'apple',
+'fruit',
+'zilch',
 ];

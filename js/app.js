@@ -24,79 +24,95 @@ let userInput4 = [];
 let userInput5 = [];
 let userInput6 = [];
 
+// const renderUserInput = () => {
+//     for (i = 0; i < userInput1.length; i++) {
+//         guess1s[i].textContent = userInput1[i];
+//         if (userInput1[i] === dailyWord[i]) {
+//             guess1s[i].style.backgroundColor = 'rgb(127, 176, 105)';
+//             userInput1[i] = ''; //this line does nothing
+//         } else if (dailyWord.includes(userInput1[i])) {
+//             guess1s[i].style.backgroundColor = 'yellow';
+//         }};
+// };
+
 const renderUserInput = () => {
+    const resultObj = doHighlights([...dailyWord], userInput1);
     for (i = 0; i < userInput1.length; i++) {
-        guess1s[i].textContent = userInput1[i];
-        if (userInput1[i] === dailyWord[i]) {
-            guess1s[i].style.backgroundColor = 'rgb(127, 176, 105)';
-            userInput1[i] = ''; //this line does nothing
-        } else if (dailyWord.includes(userInput1[i])) {
-            guess1s[i].style.backgroundColor = 'yellow';
-        }};
+    guess1s[i].textContent = userInput1[i];
+    guess1s[i].style.backgroundColor = resultObj[i].colour;}
 };
 
 
 const renderUserInput1 = () => {
+    const resultObj = doHighlights([...dailyWord], userInput2);
     for (i = 0; i < userInput2.length; i++) {
     guess2s[i].textContent = userInput2[i];
-    if (userInput2[i] === dailyWord[i]) {
-        guess2s[i].style.backgroundColor = 'rgb(127, 176, 105)';
-    } else if (dailyWord.includes(userInput2[i])) {
-        guess2s[i].style.backgroundColor = 'yellow';
-    }};
+    guess2s[i].style.backgroundColor = resultObj[i].colour;}
 }
 
 const renderUserInput2 = () => {
+    const resultObj = doHighlights([...dailyWord], userInput3);
     for (i = 0; i < userInput3.length; i++) {
-        guess3s[i].textContent = userInput3[i];
-        if (userInput3[i] === dailyWord[i]) {
-            guess3s[i].style.backgroundColor = 'rgb(127, 176, 105)';
-        } else if (dailyWord.includes(userInput3[i])) {
-            guess3s[i].style.backgroundColor = 'yellow';
-        }};
+    guess3s[i].textContent = userInput3[i];
+    guess3s[i].style.backgroundColor = resultObj[i].colour;}
 };
 
 
 const renderUserInput3 = () => {
+    const resultObj = doHighlights([...dailyWord], userInput4);
     for (i = 0; i < userInput4.length; i++) {
-        guess4s[i].textContent = userInput4[i];
-        if (userInput4[i] === dailyWord[i]) {
-            guess4s[i].style.backgroundColor = 'rgb(127, 176, 105)';
-        } else if (dailyWord.includes(userInput4[i])) {
-            guess4s[i].style.backgroundColor = 'yellow';
-        }};
+    guess4s[i].textContent = userInput4[i];
+    guess4s[i].style.backgroundColor = resultObj[i].colour;}
 };
 
 const renderUserInput4 = () => {
+    const resultObj = doHighlights([...dailyWord], userInput5);
     for (i = 0; i < userInput5.length; i++) {
-        guess5s[i].textContent = userInput5[i];
-        if (userInput5[i] === dailyWord[i]) {
-            guess5s[i].style.backgroundColor = 'rgb(127, 176, 105)';
-        } else if (dailyWord.includes(userInput5[i])) {
-            guess5s[i].style.backgroundColor = 'yellow';
-        }};
+    guess5s[i].textContent = userInput5[i];
+    guess5s[i].style.backgroundColor = resultObj[i].colour;}
 };
 
 const renderUserInput5 = () => {
+    const resultObj = doHighlights([...dailyWord], userInput6);
     for (i = 0; i < userInput6.length; i++) {
-        guess6s[i].textContent = userInput6[i];
-        if (userInput6[i] === dailyWord[i]) {
-            guess6s[i].style.backgroundColor = 'rgb(127, 176, 105)';
-        } else if (dailyWord.includes(userInput6[i])) {
-            guess6s[i].style.backgroundColor = 'yellow';
-        }};
+    guess6s[i].textContent = userInput6[i];
+    guess6s[i].style.backgroundColor = resultObj[i].colour;}
 };
 /*-------------------------------- Functions --------------------------------*/
 
+//word0 is a string and the functions push each char of the string into an array(wordArray1).
 const pushTheWord = (word0 , wordArray1) => {
     for (let i = 0; i < word0.length; i++) {
         wordArray1.push(word0[i]); 
         };
 };
 
-// const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
+const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
 
-const chosenWord = 'stone';
+// const chosenWord = 'stone';
+
+function doHighlights (dailyWordArray, guessWordArray) { //both parameters need to be arrays
+    const guessWordObj = {};
+    guessWordArray.forEach((element, index) => {
+        guessWordObj[index] = {['letter']: element, ['colour']: ''};
+    });
+    
+    for (i = 0; i < 5; i++){
+        if (dailyWordArray[i] === guessWordObj[i].letter) {
+        guessWordObj[i].colour = 'rgb(127, 176, 105)';
+        dailyWordArray[i] = '';}
+        };
+
+    for (i = 0; i < guessWordArray.length; i++) {
+        for (j = 0; j < dailyWordArray.length; j++) {
+            if (j === i) continue;
+            else if (guessWordArray[j] === dailyWordArray[i] && guessWordObj[j].colour === '') {
+                guessWordObj[j].colour = 'yellow';
+                dailyWordArray[i] = '';
+            };
+        }};
+return guessWordObj;
+};
 
 // function checkWin (guessArray) {
 //     for (i = 0; i < guessArray.length; i++) {
@@ -153,15 +169,15 @@ const checkTurnValue = () => {
 }; */
 
 const pushUserInput = () => {
-    pushTheWord(chosenWord,dailyWord);
-    const userInputValue = userInput.value;
-    pushTheWord(userInputValue,userInput1);
-    renderUserInput();
-    if (checkWin(guess1s) === true) {
+    pushTheWord(chosenWord,dailyWord); //pushes the daily, correct word into the dailWord array
+    const userInputValue = userInput.value; //gets the user's input and park it in userInputValue
+    pushTheWord(userInputValue,userInput1); //pushes the user's input into an array(userInput1)
+    renderUserInput(); //runs the main logic and determine style colour
+    if (checkWin(guess1s) === true) { //checks whether user got the word right
         userInput.value = 'You Win!';
     } else {
-    userInput.value = '';
-    turnCount += 1;
+    userInput.value = ''; //resets the textbox to empty
+    turnCount += 1; //increases turn count
     return turnCount;
     };
 };
