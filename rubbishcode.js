@@ -254,19 +254,33 @@ function checkWin(guessArray) {
 // Check if the letter is in the word but in the wrong position.
 // Keep track of matched letters to avoid duplicate yellow highlights.
 
+let guessArray = ['h','o','r','s','e',];
 
-function doHighlights (guessedWord) { //guessWord needs to be an array already
+let testArray = ['h','e','l','l','o',];
+function doHighlights (guessWord, dailyWordObject, propertyName) { //guessWord needs to be an array already
     const correctWord = {};
-for (i = 0; i < guessedWord.length; i++) {
-    correctWord[guessedWord[i]] = null;
-    }
-    return correctWord;
+    dailyWordObject.forEach((element, index) => {
+        correctWord[index + 1] = {[propertyName]: element};
+    });
+    
+    for (i = 1; i < 6; i++){
+        correctWord[i].colour = 'green';
+        };
+console.log(correctWord);
 };
 
-let testArray = ['horse'];
 
-console.log(testArray.length);
-console.log(doHighlights(testArray));
+// const keys = Object.keys(correctWord);
+    // keys.forEach((key) => {
+    //     correctWord[key].colour = 'green';
+    // });
+    
+// for (i = 1; i < 6; i++){
+//     correctWord[i].colour = 'green';
+//     };
+
+doHighlights(testArray, "letter");
+
 /*
 
 const renderUserInput = () => {
