@@ -115,6 +115,11 @@ function doHighlights (dailyWordArray, guessWordArray) { //both parameters need 
         if (guessWordObj[i].colour === '') {
         guessWordObj[i].colour = 'rgb(80, 80, 80)';
         }};
+        for (i = 0; i < guessWordArray.length; i++) {
+            buttons.forEach((button) => {
+                if (button.textContent.toLowerCase() === guessWordArray[i]) {
+                    button.style.backgroundColor = guessWordObj[i].colour;
+                }})};
 return guessWordObj;
 };
 
@@ -141,6 +146,14 @@ function checkWin(guessArray) {
 
 //can explore using the 'userInput.split' method for this
 
+// function colourKeyboard () {
+//     buttons.forEach((button) => {
+//         // Check if the button's text content is 'a'
+//         if (button.textContent.toLowerCase() === 'a') {
+//             // Change the background color of the button with text 'a'
+//             button.style.backgroundColor = 'lightblue';
+//         };})};
+    
 //check turnvalue
 
 const checkTurnValue = () => {
@@ -171,6 +184,7 @@ const pushUserInput = () => {
     } else {
     userInput.value = ''; //resets the textbox to empty
     turnCount += 1; //increases turn count
+    // colourKeyboard ();
     return turnCount;
     };
 };

@@ -254,45 +254,54 @@ function checkWin(guessArray) {
 // Check if the letter is in the word but in the wrong position.
 // Keep track of matched letters to avoid duplicate yellow highlights.
 
+const buttons = document.querySelectorAll('.keyboard-button');
 
 
-// let guessArray = ['h','a','h','a','h',];
 
-// let correctArray = ['o','o','h','h','h',];
-// function doHighlights (dailyWordArray, guessWordArray) { //guessWord needs to be an array already
-//     const guessWordObj = {};
-//     guessWordArray.forEach((element, index) => {
-//         guessWordObj[index] = {['letter']: element, ['colour']: ''};
-//     });
+let guessArray = ['h','a','h','a','h',];
+
+let correctArray = ['o','o','h','h','h',];
+function doHighlights (dailyWordArray, guessWordArray) { //guessWord needs to be an array already
+    const guessWordObj = {};
+    guessWordArray.forEach((element, index) => {
+        guessWordObj[index] = {['letter']: element, ['colour']: ''};
+    });
     
-//     for (i = 0; i < 5; i++){
-//         if (dailyWordArray[i] === guessWordObj[i].letter) {
-//         guessWordObj[i].colour = 'green';
-//         dailyWordArray[i] = '';}
-//         };
+    for (i = 0; i < 5; i++){
+        if (dailyWordArray[i] === guessWordObj[i].letter) {
+        guessWordObj[i].colour = 'green';
+        dailyWordArray[i] = '';}
+        };
 
-//     for (i = 0; i < guessWordArray.length; i++) {
-//         for (j = 0; j < dailyWordArray.length; j++) {
-//             if (j === i) continue;
-//             else if (guessWordArray[j] === dailyWordArray[i] && guessWordObj[j].colour === '') {
-//                 guessWordObj[j].colour = 'yellow';
-//                 dailyWordArray[i] = '';
-//             };}};
-//     for (i = 0; i < guessWordArray.length; i++) {
-//         if (guessWordObj[i].colour === '') {
-//             guessWordObj[i].colour = 'rgb(64, 64, 64)';
-//         };
-//     };
+    for (i = 0; i < guessWordArray.length; i++) {
+        for (j = 0; j < dailyWordArray.length; j++) {
+            if (j === i) continue;
+            else if (guessWordArray[j] === dailyWordArray[i] && guessWordObj[j].colour === '') {
+                guessWordObj[j].colour = 'yellow';
+                dailyWordArray[i] = '';
+            };}};
+    for (i = 0; i < guessWordArray.length; i++) {
+        if (guessWordObj[i].colour === '') {
+            guessWordObj[i].colour = 'rgb(64, 64, 64)';
+        };
+    };
+    const computedStyle = window.getComputedStyle(guessArray[i]);
+    for (i = 0; i < guessWordArray.length; i++) {
+    buttons.forEach((button) => {
+        // Check if the button's text content is 'a'
+        if (button.textContent.toLowerCase() === guessWordArray[i] && button.style.backgroundColor !== 'green') {
+            button.style.backgroundColor = guessWordObj[i].colour;
+        }})};
     
-// return guessWordObj;
-// };
+return guessWordObj;
+};
 
-// const result = doHighlights([...correctArray],guessArray);
+const result = doHighlights([...correctArray],guessArray);
 
-// console.log(result);
+console.log(result);
 
-// console.log(guessArray);
-// console.log(correctArray);
+console.log(guessArray);
+console.log(correctArray);
 /*
 // const keys = Object.keys(correctWord);
     // keys.forEach((key) => {
@@ -373,13 +382,4 @@ function getHighlights(correctWord, guessedWord) {
         */
 
         // Select all buttons with the class 'keyboard-button'
-    const buttons = document.querySelectorAll('.keyboard-button');
-
-    // Loop through the NodeList
-    buttons.forEach((button) => {
-        // Check if the button's text content is 'a'
-        if (button.textContent.toLowerCase() === 'a') {
-            // Change the background color of the button with text 'a'
-            button.style.backgroundColor = 'lightblue';
-        }
-    });
+   
