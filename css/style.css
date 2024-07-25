@@ -42,6 +42,7 @@ body {
     line-height: 60px;
     font-size: 2em;
 }
+/*
 
 @media (max-width: 400px) {
   .cell {
@@ -51,8 +52,8 @@ body {
     text-align: center;
     line-height: 40px;
     font-size: 1em;
-}
-}
+}}
+*/
 
 /* .flex-container {
   display: flex;
@@ -68,6 +69,9 @@ body {
   align-items: center;
   margin: 1px; /* Optional: Add space between flex items */
 /*} */
+
+/* start of the grid */
+
 .guess1 {
   border: 1px solid #E6AA68;
   background-color: #E6AA68;
@@ -78,7 +82,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1px; /* Optional: Add space between flex items */
+  margin: 1px; 
 }
 
 .guess2 {
@@ -91,7 +95,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1px; /* Optional: Add space between flex items */
+  margin: 1px; 
 }
 .guess3 {
   border: 1px solid #E6AA68;
@@ -103,7 +107,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1px; /* Optional: Add space between flex items */
+  margin: 1px; 
 }
 .guess4 {
   border: 1px solid #E6AA68;
@@ -115,7 +119,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1px; /* Optional: Add space between flex items */
+  margin: 1px; 
 }
 .guess5 {
   border: 1px solid #E6AA68;
@@ -127,7 +131,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1px; /* Optional: Add space between flex items */
+  margin: 1px; 
 }
 .guess6 {
   border: 1px solid #E6AA68;
@@ -139,8 +143,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1px; /* Optional: Add space between flex items */
+  margin: 1px; 
 }
+
+/* end of the grid */
 
 #keyboard-cont {
   margin: 1rem 0;
@@ -164,4 +170,15 @@ body {
   margin: 0 2px;
   cursor: pointer;
   text-transform: uppercase;
+}
+
+@media (max-width: 400px) {
+  .keyboard-button {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    margin: 0 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+  };
 }

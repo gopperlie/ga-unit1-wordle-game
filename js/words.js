@@ -12,6 +12,7 @@ const wordleList = [
 'blaze',
 'quote',
 'squat',
+'style',
 'lousy',
 'jumpy',
 'point',

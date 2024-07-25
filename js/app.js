@@ -10,6 +10,11 @@ const guess6s = document.getElementsByClassName("guess6");
 const guessButton = document.getElementById("guess");
 const userInput = document.getElementById('guessInput');
 
+const buttons = document.querySelectorAll('.keyboard-button');
+
+const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
+// const chosenWord = 'stone';
+
 // /*-------------------------------- Variables --------------------------------*/
 // const lose = () => {};
 
@@ -87,17 +92,13 @@ const pushTheWord = (word0 , wordArray1) => {
         };
 };
 
-const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
-
-// const chosenWord = 'stone';
-
 function doHighlights (dailyWordArray, guessWordArray) { //both parameters need to be arrays
-    const guessWordObj = {};
-    guessWordArray.forEach((element, index) => {
+    const guessWordObj = {}; //start with an empty object
+    guessWordArray.forEach((element, index) => { //for each letter of the guess word, create a new key
         guessWordObj[index] = {['letter']: element, ['colour']: ''};
     });
     
-    for (i = 0; i < 5; i++){
+    for (i = 0; i < 5; i++){ 
         if (dailyWordArray[i] === guessWordObj[i].letter) {
         guessWordObj[i].colour = 'rgb(127, 176, 105)';
         dailyWordArray[i] = '';}
@@ -109,7 +110,10 @@ function doHighlights (dailyWordArray, guessWordArray) { //both parameters need 
             else if (guessWordArray[j] === dailyWordArray[i] && guessWordObj[j].colour === '') {
                 guessWordObj[j].colour = 'yellow';
                 dailyWordArray[i] = '';
-            };
+            };}};
+    for (i = 0; i < guessWordArray.length; i++) {
+        if (guessWordObj[i].colour === '') {
+        guessWordObj[i].colour = 'rgb(80, 80, 80)';
         }};
 return guessWordObj;
 };
