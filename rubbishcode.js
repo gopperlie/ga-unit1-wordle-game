@@ -254,9 +254,9 @@ function checkWin(guessArray) {
 // Check if the letter is in the word but in the wrong position.
 // Keep track of matched letters to avoid duplicate yellow highlights.
 
-const buttons = document.querySelectorAll('.keyboard-button');
+// const buttons = document.querySelectorAll('.keyboard-button');
 
-
+const keyKeyboard = {};
 
 let guessArray = ['h','a','h','a','h',];
 
@@ -285,24 +285,53 @@ function doHighlights (dailyWordArray, guessWordArray) { //guessWord needs to be
             guessWordObj[i].colour = 'rgb(64, 64, 64)';
         };
     };
-    const computedStyle = window.getComputedStyle(guessArray[i]);
+    // const computedStyle = window.getComputedStyle(guessArray[i]);
+    // for (i = 0; i < guessWordArray.length; i++) {
+    // buttons.forEach((button) => {
+    //     if (button.textContent.toLowerCase() === guessWordArray[i] && button.style.backgroundColor !== 'green') {
+    //         button.style.backgroundColor = guessWordObj[i].colour;
+    //     }})};
     for (i = 0; i < guessWordArray.length; i++) {
-    buttons.forEach((button) => {
-        // Check if the button's text content is 'a'
-        if (button.textContent.toLowerCase() === guessWordArray[i] && button.style.backgroundColor !== 'green') {
-            button.style.backgroundColor = guessWordObj[i].colour;
-        }})};
-    
+    addKeyIfNotExist(keyKeyboard, guessWordArray[i], '');
+    };
 return guessWordObj;
 };
 
 const result = doHighlights([...correctArray],guessArray);
 
 console.log(result);
+console.log(keyKeyboard);
+// console.log(guessArray);
+// console.log(correctArray);
 
-console.log(guessArray);
-console.log(correctArray);
-/*
+function addKeyIfNotExist(obj, key, value) {
+    if (!(key in obj)) {
+        obj[key] = value;
+    } else {}};
+function changeColourIfNotGreenOrBlack (obj, key, value) {
+    if (obj[key] !== 'rgb(127, 176, 105)' || obj[key] !== 'rgb(64, 64, 64)'){
+    obj[key] = value;
+    }};
+
+function colourKeyboardW () {
+    for (i = 0; i < guessWordArray.length; i++) {
+        if (kbKeys[i].colour === '') {
+        guessWordObj[i].colour = 'rgb(80, 80, 80)';
+        }};
+        for (i = 0; i < guessWordArray.length; i++) {
+            buttons.forEach((button) => {
+                if (button.textContent.toLowerCase() === guessWordArray[i]) {
+                    button.style.backgroundColor = guessWordObj[i].colour;
+                }})};};
+
+function colourKeyboard () {
+    buttons.forEach(button => {
+        const buttonText = button.textContent.toLowerCase();
+        if (kbKeys[buttonText]) {
+            button.style.backgroundColor = kbKeys[buttonText];
+        }
+    });}
+                /*
 // const keys = Object.keys(correctWord);
     // keys.forEach((key) => {
     //     correctWord[key].colour = 'green';

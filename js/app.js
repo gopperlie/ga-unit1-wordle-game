@@ -12,8 +12,11 @@ const userInput = document.getElementById('guessInput');
 
 const buttons = document.querySelectorAll('.keyboard-button');
 
-const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
-// const chosenWord = 'stone';
+// const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
+const chosenWord = 'stone';
+
+const kbKeys = {}; //keyboard object that will determine the colour of key buttons
+
 
 // /*-------------------------------- Variables --------------------------------*/
 // const lose = () => {};
@@ -44,7 +47,10 @@ const renderUserInput = () => {
     const resultObj = doHighlights([...dailyWord], userInput1);
     for (i = 0; i < userInput1.length; i++) {
     guess1s[i].textContent = userInput1[i];
-    guess1s[i].style.backgroundColor = resultObj[i].colour;}
+    guess1s[i].style.backgroundColor = resultObj[i].colour;
+    changeColourIfNotGreenOrBlack(kbKeys, userInput1[i], resultObj[i].colour);
+}
+colourKeyboard();
 };
 
 
@@ -52,14 +58,20 @@ const renderUserInput1 = () => {
     const resultObj = doHighlights([...dailyWord], userInput2);
     for (i = 0; i < userInput2.length; i++) {
     guess2s[i].textContent = userInput2[i];
-    guess2s[i].style.backgroundColor = resultObj[i].colour;}
+    guess2s[i].style.backgroundColor = resultObj[i].colour;
+    changeColourIfNotGreenOrBlack(kbKeys, userInput2[i], resultObj[i].colour);
 }
+colourKeyboard();
+};
 
 const renderUserInput2 = () => {
     const resultObj = doHighlights([...dailyWord], userInput3);
     for (i = 0; i < userInput3.length; i++) {
     guess3s[i].textContent = userInput3[i];
-    guess3s[i].style.backgroundColor = resultObj[i].colour;}
+    guess3s[i].style.backgroundColor = resultObj[i].colour;
+    changeColourIfNotGreenOrBlack(kbKeys, userInput3[i], resultObj[i].colour);
+}
+colourKeyboard();
 };
 
 
@@ -67,21 +79,30 @@ const renderUserInput3 = () => {
     const resultObj = doHighlights([...dailyWord], userInput4);
     for (i = 0; i < userInput4.length; i++) {
     guess4s[i].textContent = userInput4[i];
-    guess4s[i].style.backgroundColor = resultObj[i].colour;}
+    guess4s[i].style.backgroundColor = resultObj[i].colour;
+    changeColourIfNotGreenOrBlack(kbKeys, userInput4[i], resultObj[i].colour);
+}
+colourKeyboard();
 };
 
 const renderUserInput4 = () => {
     const resultObj = doHighlights([...dailyWord], userInput5);
     for (i = 0; i < userInput5.length; i++) {
     guess5s[i].textContent = userInput5[i];
-    guess5s[i].style.backgroundColor = resultObj[i].colour;}
+    guess5s[i].style.backgroundColor = resultObj[i].colour;
+    changeColourIfNotGreenOrBlack(kbKeys, userInput5[i], resultObj[i].colour);
+}
+colourKeyboard();
 };
 
 const renderUserInput5 = () => {
     const resultObj = doHighlights([...dailyWord], userInput6);
     for (i = 0; i < userInput6.length; i++) {
     guess6s[i].textContent = userInput6[i];
-    guess6s[i].style.backgroundColor = resultObj[i].colour;}
+    guess6s[i].style.backgroundColor = resultObj[i].colour;
+    changeColourIfNotGreenOrBlack(kbKeys, userInput6[i], resultObj[i].colour);
+}
+colourKeyboard();
 };
 /*-------------------------------- Functions --------------------------------*/
 
@@ -111,18 +132,35 @@ function doHighlights (dailyWordArray, guessWordArray) { //both parameters need 
                 guessWordObj[j].colour = 'yellow';
                 dailyWordArray[i] = '';
             };}};
-    for (i = 0; i < guessWordArray.length; i++) {
+     for (i = 0; i < guessWordArray.length; i++) {
         if (guessWordObj[i].colour === '') {
-        guessWordObj[i].colour = 'rgb(80, 80, 80)';
-        }};
-        for (i = 0; i < guessWordArray.length; i++) {
-            buttons.forEach((button) => {
-                if (button.textContent.toLowerCase() === guessWordArray[i]) {
-                    button.style.backgroundColor = guessWordObj[i].colour;
-                }})};
+            guessWordObj[i].colour = 'rgb(64, 64, 64)';
+        }};    
+    for (i = 0; i < guessWordArray.length; i++) {
+        addKeyIfNotExist(kbKeys, guessWordArray[i], '');
+        };   
 return guessWordObj;
 };
 
+function addKeyIfNotExist(obj, key, value) {
+    if (!(key in obj)) {
+        obj[key] = value;
+    } else {}};
+
+function changeColourIfNotGreenOrBlack (obj, key, value) {
+    if (obj[key] == ''){
+        obj[key] = value;
+    } else if (obj[key] === 'yellow' && value === 'rgb(127, 176, 105)'){
+        obj[key] = value;
+    }};
+
+function colourKeyboard () {
+    buttons.forEach(button => {
+        const buttonText = button.textContent.toLowerCase();
+        if (kbKeys[buttonText]) { //if the key in kbKeys matches the buttonText returns true, run
+            button.style.backgroundColor = kbKeys[buttonText];
+        }
+    });}
 // function checkWin (guessArray) {
 //     for (i = 0; i < guessArray.length; i++) {
 //     if (guessArray[i].style.backgroundColor === 'green') {
@@ -159,16 +197,22 @@ function checkWin(guessArray) {
 const checkTurnValue = () => {
     if (turnCount === 0) 
     {pushUserInput();
+    console.log(kbKeys);
     } else if (turnCount === 1) {
         pushUserInput1();
+        console.log(kbKeys);
     } else if (turnCount === 2) {
         pushUserInput2();
+        console.log(kbKeys);
     } else if (turnCount === 3) {
         pushUserInput3();
+        console.log(kbKeys);
     } else if (turnCount === 4) {
         pushUserInput4();
+        console.log(kbKeys);
     } else if (turnCount === 5) {
         pushUserInput5();
+        console.log(kbKeys);
     } else {
         userInput.value = chosenWord;
     }
@@ -253,6 +297,8 @@ const pushUserInput5 = () => {
     return turnCount;
     };
 };
+
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 
