@@ -12,8 +12,8 @@ const userInput = document.getElementById('guessInput');
 
 const buttons = document.querySelectorAll('.keyboard-button');
 
-// const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
-const chosenWord = 'stone';
+const chosenWord = wordleList[Math.floor(Math.random() * wordleList.length)];
+// const chosenWord = 'stone';
 
 const kbKeys = {}; //keyboard object that will determine the colour of key buttons
 
@@ -121,11 +121,10 @@ function doHighlights (dailyWordArray, guessWordArray) { //both parameters need 
     
     for (i = 0; i < guessWordArray.length; i++){ 
         if (dailyWordArray[i] === guessWordObj[i].letter) {
-        guessWordObj[i].colour = 'rgb(127, 176, 105)';
+        guessWordObj[i].colour = 'rgb(127, 176, 105)'; //try not to change colours directly from JS
         dailyWordArray[i] = '';}
         };
-
-    for (i = 0; i < guessWordArray.length; i++) {
+    for (let i = 0; i < guessWordArray.length; i++) {
         for (j = 0; j < dailyWordArray.length; j++) {
             if (j === i) continue;
             else if (guessWordArray[j] === dailyWordArray[i] && guessWordObj[j].colour === '') {
