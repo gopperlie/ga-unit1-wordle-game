@@ -119,7 +119,7 @@ function doHighlights (dailyWordArray, guessWordArray) { //both parameters need 
         guessWordObj[index] = {['letter']: element, ['colour']: ''};
     });
     
-    for (i = 0; i < 5; i++){ 
+    for (i = 0; i < guessWordArray.length; i++){ 
         if (dailyWordArray[i] === guessWordObj[i].letter) {
         guessWordObj[i].colour = 'rgb(127, 176, 105)';
         dailyWordArray[i] = '';}
