@@ -292,7 +292,7 @@ const pushUserInput5 = () => {
     if (checkWin(guess6s) === true) {
         userInput.value = 'You Win!';
     } else {
-    userInput.value = '';
+    userInput.value = 'Word: ' + chosenWord;
     turnCount += 1;
     return turnCount;
     };
