@@ -161,11 +161,6 @@ function colourKeyboard () {
             button.style.backgroundColor = kbKeys[buttonText];
         }
     });}
-// function checkWin (guessArray) {
-//     for (i = 0; i < guessArray.length; i++) {
-//     if (guessArray[i].style.backgroundColor === 'green') {
-//         userInput.value = 'you win';
-// }}};
 
 function checkWin(guessArray) {
     const userInput = document.getElementById('userInput');
@@ -183,14 +178,6 @@ function checkWin(guessArray) {
     } };
 
 //can explore using the 'userInput.split' method for this
-
-// function colourKeyboard () {
-//     buttons.forEach((button) => {
-//         // Check if the button's text content is 'a'
-//         if (button.textContent.toLowerCase() === 'a') {
-//             // Change the background color of the button with text 'a'
-//             button.style.backgroundColor = 'lightblue';
-//         };})};
     
 //check turnvalue
 
